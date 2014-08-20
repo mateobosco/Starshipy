@@ -1,0 +1,46 @@
+#!/usr/bin/python
+import pygame
+import sys
+import random
+from pygame.locals import *
+
+ANCHO_PANTALLA = 640
+ALTO_PANTALLA = 480
+
+
+class Nave(object):
+	def __init__(self):
+		self.posicion = [ANCHO_PANTALLA/2, ALTO_PANTALLA - 40]
+		self.tamano = [10,10]
+		self.velocidad = [5,5]
+		self.vida = 100
+
+	def moverDerecha(self):
+		if (self.posicion[0] + self.tamano[0] > ANCHO_PANTALLA):
+			return
+		self.posicion[0] += self.velocidad[0]
+
+	def moverIzquierda(self):
+		if (self.posicion[0] - self.tamano[0] < 0):
+			return
+		self.posicion[0] -= self.velocidad[0]
+
+	def moverArriba(self):
+		if (self.posicion[1] + self.tamano[1] < 0):
+			return
+		self.posicion[1] -= self.velocidad[1]
+
+	def moverAbajo(self):
+		if (self.posicion[1] - self.tamano[1] > ALTO_PANTALLA):
+			return
+		self.posicion[1] += self.velocidad[1]
+
+	def dibujar(self,pantalla):
+		x = self.posicion[0]
+		y = self.posicion[1]
+		ancho = self.tamano[0]
+		alto = self.tamano[1]
+		pygame.draw.rect(pantalla,pygame.Color(0,0,255),pygame.Rect((x,y), (ancho, alto)))
+
+	def __str__(self):
+		return "Jugador en posicion " + str(self.posicion)
