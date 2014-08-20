@@ -66,6 +66,33 @@ class Enemigo(object):
 	def __str__(self):
 		return "Jugador en posicion " + str(self.posicion)
 
+class ManejadorEnemigos(object):
+	enemigos = []
+	ciclos = 0
+
+	def mover(self):
+		for enemigo in self.enemigos:
+			enemigo.mover()
+			if (enemigo.posicion[1] > ALTO_PANTALLA):
+				self.enemigos.remove(enemigo)
+				enemigo = 0
+
+	def crearEnemigo(self):
+		ene = Enemigo()
+		self.enemigos.append(ene)
+
+	def ciclo(self):
+		self.mover()
+		self.ciclos += 1
+		print(self.ciclos)
+		if (self.ciclos == 10):
+			self.crearEnemigo()
+			self.ciclos = 0
+
+	def dibujar(self,pantalla):
+		for e in self.enemigos:
+			e.dibujar(pantalla)
+
 
 
 def main():
@@ -74,21 +101,19 @@ def main():
 	clock = pygame.time.Clock()
 
 	jugador = Nave()
-	malo = Enemigo()
+	manejador = ManejadorEnemigos()
 
-	dibujables = [jugador,malo]
 
 	while 1:
+
+		manejador.ciclo()
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				pygame.quit()
 				sys.exit()
-		malo.mover()
-		print(malo)
-		print(jugador)
 		pantalla.fill(pygame.Color(0,0,0))
-		for dibujable in dibujables:
-			dibujable.dibujar(pantalla)
+		jugador.dibujar(pantalla)
+		manejador.dibujar(pantalla)
 		pygame.display.flip()
 		pygame.time.wait(10)
 
