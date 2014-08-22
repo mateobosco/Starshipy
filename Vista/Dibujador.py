@@ -14,11 +14,10 @@ class Dibujador(object):
 		pygame.init()
 		self.pantalla = pygame.display.set_mode((ANCHO_PANTALLA, ALTO_PANTALLA))
 
-	def actualizar(self, dibujables):
+	def actualizar(self, universo):
 		self.pantalla.fill(pygame.Color(0,0,0))
 
-		for d in dibujables:
-			d.dibujar(self.pantalla)
+		universo.dibujar(self.pantalla)
 
 		pygame.display.flip()
 		pygame.time.wait(10)

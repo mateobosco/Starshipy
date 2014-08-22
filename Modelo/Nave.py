@@ -3,6 +3,7 @@ import pygame
 import sys
 import random
 from pygame.locals import *
+from Disparo import *
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
@@ -14,6 +15,7 @@ class Nave(object):
 		self.tamano = [10,10]
 		self.velocidad = [5,5]
 		self.vida = 100
+		self.disparos = []
 
 	def moverDerecha(self):
 		if (self.posicion[0] + self.tamano[0] > ANCHO_PANTALLA):
@@ -41,6 +43,13 @@ class Nave(object):
 		ancho = self.tamano[0]
 		alto = self.tamano[1]
 		pygame.draw.rect(pantalla,pygame.Color(0,0,255),pygame.Rect((x,y), (ancho, alto)))
+		for disparo in self.disparos:
+			disparo.dibujar(pantalla)
 
 	def __str__(self):
 		return "Jugador en posicion " + str(self.posicion)
+
+	def disparar(self):
+		disparo = Disparo(self.posicion)
+		self.disparos.append(disparo)
+
