@@ -2,7 +2,7 @@
 import pygame
 import sys
 import random
-import enemigo.py
+from Enemigo import *
 from pygame.locals import *
 
 ANCHO_PANTALLA = 640
