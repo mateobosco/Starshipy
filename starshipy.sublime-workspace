@@ -1,0 +1,246 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dis",
+				"disparosJugador"
+			],
+			[
+				"disa",
+				"disparos"
+			],
+			[
+				"ac",
+				"actualizar"
+			],
+			[
+				"dibuj",
+				"dibujador"
+			],
+			[
+				"control",
+				"Controlador"
+			],
+			[
+				"fh",
+				"fhSalida"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"snippe",
+				"Snippet: Try/Except/Finally"
+			],
+			[
+				"pyho",
+				"Set Syntax: Python"
+			],
+			[
+				"synta",
+				"Set Syntax: Groovy"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Starshipy.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/Enemigo.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Controlador/Controlador.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/Disparo.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/Nave.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/Jugador.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/Universo.py",
+		"/D/GRloader/log/MDR generated_err.xml",
+		"/C/Users/mbosco/Desktop/Corridas/MDR/MDR generated.xml",
+		"/C/Users/mbosco/Desktop/Carga masiva Laptops_Saudi Arabia_20140826_v2.XML",
+		"//usd.tenaris.net/log/jstd.log",
+		"/C/Users/mbosco/Desktop/Carga masiva SmartPhone_20140825.XML",
+		"/C/Users/mbosco/Desktop/Carga masiva SmartPhone_20140822.XML",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/ManejadorEnemigos.py",
+		"/C/Users/mbosco/Desktop/USD_Salida_QA/Salida_QA/Cecos2DEV.dat",
+		"/C/Users/mbosco/Desktop/USD_Salida_QA/Salida_QA/IT09_2DEV.dat",
+		"/C/Users/mbosco/Desktop/USD_Salida_QA/Salida_QA/COIN2DEV.dat",
+		"/C/Users/mbosco/Desktop/USD_Salida_QA/Salida_QA/DS1_2DEV.dat",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Vista/Dibujador.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Vista/__init__.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/__init__.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Controlador/__init__.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/nave.py",
+		"/C/Users/mbosco/Desktop/MDR.xml",
+		"/C/Users/mbosco/Desktop/MDR.py",
+		"/C/Users/mbosco/Desktop/IDs.txt",
+		"/D/GRloader/Inputs/MDR generated.xml",
+		"/C/Users/mbosco/Desktop/MDR generated.xml",
+		"/C/Users/mbosco/Desktop/script.py",
+		"/D/GRloader/log/prueba_err.xml",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/naves.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Controlador/controlador.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/manejadorEnemigos.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/enemigo.py",
+		"/C/Users/mbosco/Documents/GitHub/Starshipy/Modelo/nave.py",
+		"/C/Users/mbosco/Desktop/pong.py",
+		"/C/Users/mbosco/Desktop/cecosSalidaDEV_err.dat",
+		"/C/Users/mbosco/Desktop/pong.kv",
+		"/D/GRloader/Inputs/prueba.xml",
+		"/D/GRloader/Inputs/Carga masiva Laptops_20140805.xml",
+		"/C/Users/mbosco/Desktop/Kivy-1.8.0-py2.7-win32/kivy/examples/demo/showcase/showcase.kv",
+		"/C/Users/mbosco/Desktop/Kivy-1.8.0-py2.7-win32/kivy/examples/demo/showcase/android.txt",
+		"/C/Users/mbosco/Desktop/Kivy-1.8.0-py2.7-win32/kivy/examples/demo/showcase/main.py",
+		"/C/Users/mbosco/Desktop/Kivy-1.8.0-py2.7-win32/kivy.bat",
+		"/D/GRloader/ejecucion.txt",
+		"/C/Users/mbosco/Desktop/mdr.dat",
+		"/C/Users/mbosco/Desktop/salida.dat",
+		"/C/Users/mbosco/Desktop/Planilla para MDR.csv",
+		"/C/Users/mbosco/Desktop/Update_CI_From_WS_2014_6_16.xml",
+		"/C/Users/mbosco/Desktop/DEPLOY MDR/MDR.bat",
+		"/C/Users/mbosco/Desktop/DEPLOY MDR/mdrSalida.dat",
+		"/C/Users/mbosco/Desktop/prueba.xml",
+		"/C/Users/mbosco/AppData/Local/Temp/Rar$DIa0.647/rule.spec",
+		"/C/Users/mbosco/AppData/Local/Temp/Rar$DIa0.969/rule1.spec",
+		"/C/Users/mbosco/Documents/GitHub/LatexCV/CV ENG.tex",
+		"/C/Users/mbosco/Desktop/adopcion.sql",
+		"/C/Users/mbosco/Desktop/survey.sql",
+		"/C/Users/mbosco/Documents/GitHub/LatexCV/CV.tex",
+		"/C/Users/mbosco/Desktop/DEPLOY MDR/rule.spec"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"t332",
+			"PROD",
+			"	",
+			"DEV",
+			"()",
+			"ReferenceListProperty",
+			"NumericProperty",
+			"Widget",
+			"from",
+			"desktop",
+			"class",
+			"famil"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"QA",
+			"",
+			"PROD"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/mbosco/Documents/GitHub/Starshipy/starshipy.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

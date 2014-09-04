@@ -1,6 +1,9 @@
 from ManejadorEnemigos import * 
 from Jugador import *
-from Disparo import *
+#from Disparo import *
+import Disparo
+import time
+
 
 class Universo(object):
 
@@ -12,9 +15,7 @@ class Universo(object):
 		self.manejador.ciclo()
 		disparosJugador = self.jugador.nave.disparos
 		for disparo in disparosJugador:
-			if (disparo is Disparo): 
-				disparo.mover()
-				print disparosJugador.index(disparo)
+			disparo.moverDisparo()
 
 	def dibujar(self,pantalla):
 		self.jugador.dibujar(pantalla)

@@ -3,7 +3,8 @@ import pygame
 import sys
 import random
 from pygame.locals import *
-from Disparo import *
+#from Disparo import *
+import Disparo
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
@@ -50,6 +51,5 @@ class Nave(object):
 		return "Jugador en posicion " + str(self.posicion)
 
 	def disparar(self):
-		disparo = Disparo(self.posicion)
+		disparo = Disparo.Disparo(self.posicion)
 		self.disparos.append(disparo)
-
