@@ -1,8 +1,6 @@
 #!/usr/bin/python
 import pygame
-import sys
 import random
-from pygame.locals import *
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480

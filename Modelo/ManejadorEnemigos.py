@@ -1,9 +1,7 @@
 #!/usr/bin/python
-import pygame
-import sys
-import random
-from Enemigo import *
-from pygame.locals import *
+
+from Enemigo import Enemigo
+# from pygame.locals import *
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480

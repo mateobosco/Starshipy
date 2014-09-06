@@ -1,11 +1,8 @@
 #!/usr/bin/python
 import pygame
-import sys
-import random
-from pygame.locals import *
-from Vista.Dibujador import *
-from Modelo.Universo import *
-from Controlador.Controlador import * 
+from Vista.Dibujador import Dibujador
+from Modelo.Universo import Universo
+from Controlador.Controlador import Controlador
 
 
 def main():

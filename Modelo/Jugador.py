@@ -1,4 +1,4 @@
-from Nave import *
+from Nave import Nave
 
 
 class Jugador(object):

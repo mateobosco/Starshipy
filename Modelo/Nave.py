@@ -1,9 +1,5 @@
 #!/usr/bin/python
 import pygame
-import sys
-import random
-from pygame.locals import *
-#from Disparo import *
 import Disparo
 
 ANCHO_PANTALLA = 640
@@ -43,7 +39,7 @@ class Nave(object):
 		y = self.posicion[1]
 		ancho = self.tamano[0]
 		alto = self.tamano[1]
-		pygame.draw.rect(pantalla,pygame.Color(0,0,255),pygame.Rect((x,y), (ancho, alto)))
+		pygame.draw.rect(pantalla,pygame.Color(255,0,255),pygame.Rect((x,y), (ancho, alto)))
 		for disparo in self.disparos:
 			disparo.dibujar(pantalla)
 
@@ -51,5 +47,5 @@ class Nave(object):
 		return "Jugador en posicion " + str(self.posicion)
 
 	def disparar(self):
-		disparo = Disparo.Disparo(self.posicion)
+		disparo = Disparo.Disparo(self.posicion+[-1,0])
 		self.disparos.append(disparo)

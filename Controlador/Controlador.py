@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import pygame
 import sys
-import random
 from pygame.locals import *
 
 
@@ -17,6 +16,7 @@ class Controlador(object):
 		elif keys[K_DOWN]: self.jugador.nave.moverAbajo()
 		elif keys[K_UP]: self.jugador.nave.moverArriba()
 		elif keys[K_SPACE]: self.jugador.nave.disparar()
+# 			self.universo.agregarDisparoJugador(disparo)
 
 		elif keys[K_ESCAPE]: self.salirJuego()
 
