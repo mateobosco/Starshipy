@@ -9,7 +9,7 @@ class Disparo(object):
 		velocidad = [0,-1]
 		tamano = [10,10]
 		m = Movil.MovilFactory()
-		self.movil = m.crearMovil(posicion,tamano,velocidad)
+		self.movil = m.crearMovil(self,posicion,tamano,velocidad)
 
 	def moverDisparo(self):
 		self.movil.moverAbajo()

@@ -14,7 +14,7 @@ class Enemigo(object):
 		velocidad = [1,1]
 		self.vida = 50
 		m = Movil.MovilFactory()
-		self.movil = m.crearMovil(posicion,tamano,velocidad)
+		self.movil = m.crearMovil(self,posicion,tamano,velocidad)
 
 
 	def mover(self):
