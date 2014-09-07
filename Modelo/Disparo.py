@@ -1,21 +1,24 @@
 import pygame
+import Movil
 
 class Disparo(object):
 
 	def __init__(self, posicion):
 # 		self.dueno = dueno
-		self.posicion = posicion
-		self.velocidad = [0,-1]
-		self.tamano = [10,10]
+		posicion = posicion
+		velocidad = [0,-1]
+		tamano = [10,10]
+		m = Movil.MovilFactory()
+		self.movil = m.crearMovil(posicion,tamano,velocidad)
 
 	def moverDisparo(self):
-		self.posicion[1] += self.velocidad[1]
+		self.movil.moverAbajo()
 
 	def dibujar(self,pantalla):
-		ancho = self.tamano[0]
-		alto = self.tamano[1]
-		x = self.posicion[0]
-		y = self.posicion[1]
+		ancho = self.movil.tamano[0]
+		alto = self.movil.tamano[1]
+		x = self.movil.posicion[0]
+		y = self.movil.posicion[1]
 		pygame.draw.rect(pantalla,pygame.Color(0,255,255),pygame.Rect((x,y), (ancho, alto)))
 
 

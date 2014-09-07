@@ -25,10 +25,10 @@ class Universo(object):
 		for disparo in disparos:
 			disparo.moverDisparo()
 			aux = 0
-			if disparo.posicion[0] > ANCHO_PANTALLA : aux = 1
-			if disparo.posicion[0] < 0 : aux = 1
-			if disparo.posicion[1] > ALTO_PANTALLA : aux = 1
-			if disparo.posicion[1] < 0 : aux = 1
+			if disparo.movil.posicion[0] > ANCHO_PANTALLA : aux = 1
+			if disparo.movil.posicion[0] < 0 : aux = 1
+			if disparo.movil.posicion[1] > ALTO_PANTALLA : aux = 1
+			if disparo.movil.posicion[1] < 0 : aux = 1
 			if aux == 1:
 				disparos.remove(disparo)
 				disparo = 0

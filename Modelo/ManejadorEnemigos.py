@@ -14,7 +14,7 @@ class ManejadorEnemigos(object):
 	def mover(self):
 		for enemigo in self.enemigos:
 			enemigo.mover()
-			if (enemigo.posicion[1] > ALTO_PANTALLA):
+			if (enemigo.movil.posicion[1] > ALTO_PANTALLA):
 				self.enemigos.remove(enemigo)
 				enemigo = 0
 

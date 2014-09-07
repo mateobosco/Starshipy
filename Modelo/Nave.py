@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import pygame
 import Disparo
+import Movil
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
@@ -8,37 +9,32 @@ ALTO_PANTALLA = 480
 
 class Nave(object):
 	def __init__(self):
-		self.posicion = [ANCHO_PANTALLA/2, ALTO_PANTALLA - 40]
-		self.tamano = [10,10]
-		self.velocidad = [5,5]
+		posicion = [ANCHO_PANTALLA/2, ALTO_PANTALLA - 40]
+		tamano = [10,10]
+		velocidad = [5,5]
 		self.vida = 100
 		self.disparos = []
 
+		m = Movil.MovilFactory()
+		self.movil = m.crearMovilNave(posicion,tamano,velocidad)
+
 	def moverDerecha(self):
-		if (self.posicion[0] + self.tamano[0] > ANCHO_PANTALLA):
-			return
-		self.posicion[0] += self.velocidad[0]
+		self.movil.moverDerecha()
 
 	def moverIzquierda(self):
-		if (self.posicion[0] - self.tamano[0] < 0):
-			return
-		self.posicion[0] -= self.velocidad[0]
+		self.movil.moverIzquierda()
 
 	def moverArriba(self):
-		if (self.posicion[1] + self.tamano[1] < 0):
-			return
-		self.posicion[1] -= self.velocidad[1]
+		self.movil.moverArriba()
 
 	def moverAbajo(self):
-		if (self.posicion[1] - self.tamano[1] > ALTO_PANTALLA):
-			return
-		self.posicion[1] += self.velocidad[1]
+		self.movil.moverAbajo()
 
 	def dibujar(self,pantalla):
-		x = self.posicion[0]
-		y = self.posicion[1]
-		ancho = self.tamano[0]
-		alto = self.tamano[1]
+		x = self.movil.posicion[0]
+		y = self.movil.posicion[1]
+		ancho = self.movil.tamano[0]
+		alto = self.movil.tamano[1]
 		pygame.draw.rect(pantalla,pygame.Color(255,0,255),pygame.Rect((x,y), (ancho, alto)))
 		for disparo in self.disparos:
 			disparo.dibujar(pantalla)
@@ -47,5 +43,5 @@ class Nave(object):
 		return "Jugador en posicion " + str(self.posicion)
 
 	def disparar(self):
-		disparo = Disparo.Disparo(self.posicion+[-1,0])
+		disparo = Disparo.Disparo(self.movil.posicion+[-1,0])
 		self.disparos.append(disparo)
