@@ -2,11 +2,15 @@ ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
 
 class Movil(object):
+	lista = []
 	def __init__(self,dueno,posicion,tamano,velocidad):
 		self.dueno = dueno
 		self.posicion = posicion
 		self.tamano = tamano
 		self.velocidad = velocidad
+		self.posicionEnLista = len(Movil.lista)
+		Movil.lista.append(self)
+		print self.posicionEnLista
 
 	def moverDerecha(self):
 		self.posicion[0] += self.velocidad[0]
@@ -167,7 +171,7 @@ class MovilFactory(Singleton):
 	def crearMovil(self,dueno,posicion,tamano,velocidad):
 		m = Movil(dueno,posicion,tamano,velocidad)
 		self.moviles.append(m)
-		print (self.moviles)
+		#print (self.moviles)
 		self.collisionDetector.hashearMovil(m)
 		return m
 
@@ -175,7 +179,7 @@ class MovilFactory(Singleton):
 		m = MovilNave(dueno,posicion,tamano,velocidad)
 		self.moviles.append(m)
 		self.collisionDetector.hashearMovil(m)
-		print (self.moviles)
+		#print (self.moviles)
 		return m
 
 

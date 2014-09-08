@@ -26,7 +26,7 @@ class ManejadorEnemigos(object):
 		self.mover()
 		self.ciclos += 1
 		if (self.ciclos == 60):
-			# self.crearEnemigo()
+			self.crearEnemigo()
 			self.ciclos = 0
 
 	def dibujar(self,pantalla):
