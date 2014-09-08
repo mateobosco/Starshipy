@@ -8,3 +8,6 @@ class Jugador(object):
 
 	def dibujar(self,pantalla):
 		self.nave.dibujar(pantalla)
+
+	def step(self):
+		self.nave.step()

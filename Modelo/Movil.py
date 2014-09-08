@@ -1,66 +1,54 @@
-
-
-
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
 
 class Movil(object):
-	def __init__(self,posicion,tamano,velocidad):
+	def __init__(self,dueno,posicion,tamano,velocidad):
+		self.dueno = dueno
 		self.posicion = posicion
 		self.tamano = tamano
 		self.velocidad = velocidad
-		self.collisionDetector = CollisionDetectorHash()
 
 	def moverDerecha(self):
-		posicionVieja = self.posicion
 		self.posicion[0] += self.velocidad[0]
-		self.collisionDetector.updateMovil(self,posicionVieja)
 
 	def moverIzquierda(self):
-		posicionVieja = self.posicion
 		self.posicion[0] -= self.velocidad[0]
-		self.collisionDetector.updateMovil(self,posicionVieja)
 
 	def moverArriba(self):
-		posicionVieja = self.posicion
 		self.posicion[1] -= self.velocidad[1]
-		self.collisionDetector.updateMovil(self,posicionVieja)
 
 	def moverAbajo(self):
-		posicionVieja = self.posicion
 		self.posicion[1] += self.velocidad[1]
-		self.collisionDetector.updateMovil(self,posicionVieja)
+
+	def __str__(self):
+		print "Movil en posicion " + str(self.posicion)
+
+	# def __eq__(self,otro):
+		# return (self.tamano == otro.tamano and self.posicion == otro.tamano and self.velocidad == otro.velocidad)
 
 
 class MovilNave(Movil):
 
 	def moverDerecha(self):
-		posicionVieja = self.posicion
 		if (self.posicion[0] + self.tamano[0] > ANCHO_PANTALLA):
 			return
 		self.posicion[0] += self.velocidad[0]
-		self.collisionDetector.updateMovil(self,posicionVieja)
 
 	def moverIzquierda(self):
-		posicionVieja = self.posicion
 		if (self.posicion[0] - self.tamano[0] < 0):
 			return
 		self.posicion[0] -= self.velocidad[0]
-		self.collisionDetector.updateMovil(self,posicionVieja)
-
+	
 	def moverArriba(self):
-		posicionVieja = self.posicion
 		if (self.posicion[1] + self.tamano[1] < 0):
 			return
 		self.posicion[1] -= self.velocidad[1]
-		self.collisionDetector.updateMovil(self,posicionVieja)
 
 	def moverAbajo(self):
-		posicionVieja = self.posicion
 		if (self.posicion[1] - self.tamano[1] > ALTO_PANTALLA):
 			return
 		self.posicion[1] += self.velocidad[1]
-		self.collisionDetector.updateMovil(self,posicionVieja)
+
 
 class Singleton(object):
 	instance = None
@@ -140,7 +128,7 @@ class CollisionDetectorTable(Singleton):
 		self.checkTamanoMax(movil)
 		self.deshashearMovil(movil,posicionVieja)
 		self.hashearMovil(movil)
-		self.detectarColision(movil)
+		# self.detectarColision(movil)
 
 	def checkTamanoMax(self,movil):
 		if (self.tamMax[0] < movil.tamano[0]): self.tamMax[0] = movil.tamano[0]
@@ -155,13 +143,14 @@ class CollisionDetectorTable(Singleton):
 		self.tabla[pos[0]][pos[1]] = movil
 
 	def detectarColision(self,movil):
-		inicioX = movil.posicion[0] - self.tamMax[0]
-		inicioY = movil.posicion[1] - self.tamMax[1]
+		inicioX = movil.posicion[0] - self.tamMax[0]/2
+		inicioY = movil.posicion[1] - self.tamMax[1]/2
 
 		for x in range(inicioX , inicioX + self.tamMax[0]):
 			for y in range(inicioY , inicioY + self.tamMax[1]):
 				resultado = self.checkPosicion(movil,[x,y])
-				if (resultado is Movil): print "COLISION EN " + resultado.posicion
+				if (resultado != 0 ): 
+					print("COLISION",resultado)
 
 
 	def checkPosicion(self,movil,posicion):
@@ -170,20 +159,59 @@ class CollisionDetectorTable(Singleton):
 		else: return resultado
 
 
-
 class MovilFactory(Singleton):
 	def __init__(self):
 		self.moviles = []
-		self.collisionDetector = CollisionDetectorHash()
+		self.collisionDetector = CollisionDetectorTable()
 
 	def crearMovil(self,dueno,posicion,tamano,velocidad):
-		m = Movil(posicion,tamano,velocidad)
+		m = Movil(dueno,posicion,tamano,velocidad)
 		self.moviles.append(m)
+		print (self.moviles)
 		self.collisionDetector.hashearMovil(m)
 		return m
 
 	def crearMovilNave(self,dueno,posicion,tamano,velocidad):
-		m = MovilNave(posicion,tamano,velocidad)
+		m = MovilNave(dueno,posicion,tamano,velocidad)
 		self.moviles.append(m)
 		self.collisionDetector.hashearMovil(m)
+		print (self.moviles)
 		return m
+
+
+class CollisionDetector(Singleton):
+	
+	def checkColisiones(self, moviles):
+		for movil in moviles:
+			for candidato in moviles:
+				if (moviles.index(movil) == moviles.index(candidato)): continue
+				resultado = self.colsionaCon(movil,candidato)
+				if resultado : print "Colsiono el " + str(movil.dueno) + "con el" + str(candidato.dueno)
+
+
+	def colsionaCon(self,movil,candidato):
+		# if (movil == candidato): return False
+		left = movil.posicion[0]
+		right = movil.posicion[1] + movil.tamano[0]
+		top = movil.posicion[1] + movil.tamano[1]
+		bottom = movil.posicion[1]
+		r_left = candidato.posicion[0]
+		r_right = candidato.posicion[0] + candidato.tamano[0]
+		r_top = candidato.posicion[1] + candidato.tamano[1]
+		r_bottom = candidato.posicion[1]
+		if (right >= r_left and left <= r_right and top >= r_bottom and bottom <= r_top) :return True
+		return False
+
+	def intersects(self,obj1,obj2):
+		# if (obj1 == obj2):
+			# return False
+		if (obj1.posicion[0] + obj1.tamano[0] < obj2.posicion[0]):
+			return False
+		if (obj1.posicion[1] + obj1.tamano[1] < obj2.posicion[1]):
+			return False
+		if (obj1.posicion[0] > obj2.posicion[0] + obj2.tamano[0]):
+			return False
+		if (obj1.posicion[1] > obj2.posicion[1] + obj2.tamano[1]):
+			return False
+		return True
+

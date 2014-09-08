@@ -10,7 +10,7 @@ ALTO_PANTALLA = 480
 class Enemigo(object):
 	def __init__(self):
 		posicion = [random.randrange(0, ANCHO_PANTALLA), 0]
-		tamano = [5,5]
+		tamano = [20,20]
 		velocidad = [1,1]
 		self.vida = 50
 		m = Movil.MovilFactory()
@@ -29,5 +29,5 @@ class Enemigo(object):
 		pygame.draw.rect(pantalla,pygame.Color(0,255,255),pygame.Rect((x,y), (ancho, alto)))
 
 	def __str__(self):
-		return "Jugador en posicion " + str(self.posicion)
+		return "Jugador en posicion " + str(self.movil.posicion)
 

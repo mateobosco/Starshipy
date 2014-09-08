@@ -1,5 +1,6 @@
 from ManejadorEnemigos import ManejadorEnemigos
 from Jugador import Jugador
+import Movil
 
 
 ANCHO_PANTALLA = 640
@@ -10,11 +11,15 @@ class Universo(object):
 	def __init__(self):
 		self.jugador = Jugador()
 		self.manejador = ManejadorEnemigos()
+		self.collisionDetector = Movil.CollisionDetector()
+		self.movilFactory = Movil.MovilFactory()
 
 	def step(self):
 		self.manejador.ciclo()
+		self.jugador.step()
 		disparosJugador = self.jugador.nave.disparos
 		self.stepDisparo(disparosJugador)
+		self.collisionDetector.checkColisiones(self.movilFactory.moviles)
 			
 			
 	def dibujar(self,pantalla):

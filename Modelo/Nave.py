@@ -13,6 +13,7 @@ class Nave(object):
 		tamano = [10,10]
 		velocidad = [5,5]
 		self.vida = 100
+		self.ciclo = 0
 		self.disparos = []
 
 		m = Movil.MovilFactory()
@@ -40,8 +41,13 @@ class Nave(object):
 			disparo.dibujar(pantalla)
 
 	def __str__(self):
-		return "Jugador en posicion " + str(self.posicion)
+		return "Jugador en posicion " + str(self.movil.posicion)
 
 	def disparar(self):
-		disparo = Disparo.Disparo(self.movil.posicion+[-1,0])
-		self.disparos.append(disparo)
+		if self.ciclo == 0 :
+			disparo = Disparo.Disparo(self.movil.posicion+[-self.movil.tamano[0]*2,0])
+			self.disparos.append(disparo)
+			self.ciclo = 20
+
+	def step(self):
+		if (self.ciclo > 0): self.ciclo -= 1

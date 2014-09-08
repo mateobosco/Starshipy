@@ -23,4 +23,4 @@ class Disparo(object):
 
 
 	def __str__(self):
-		return "Disparo en posicion " + str(self.posicion)
+		return "Disparo en posicion " + str(self.movil.posicion)
