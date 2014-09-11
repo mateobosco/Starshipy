@@ -12,15 +12,15 @@ class Universo(object):
 		self.jugador = Jugador()
 		self.manejador = ManejadorEnemigos()
 		self.collisionDetector = Movil.CollisionDetector()
-		self.movilFactory = Movil.MovilFactory()
 
 	def step(self):
 		self.manejador.ciclo()
 		self.jugador.step()
 		disparosJugador = self.jugador.nave.disparos
 		self.stepDisparo(disparosJugador)
-		self.collisionDetector.checkColisiones(self.movilFactory.moviles)
-			
+		lista = Movil.Movil.lista
+		self.collisionDetector.checkColisiones(lista)
+
 			
 	def dibujar(self,pantalla):
 		self.jugador.dibujar(pantalla)

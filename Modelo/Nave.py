@@ -16,8 +16,8 @@ class Nave(object):
 		self.ciclo = 0
 		self.disparos = []
 
-		m = Movil.MovilFactory()
-		self.movil = m.crearMovilNave(self,posicion,tamano,velocidad)
+		self.movil = Movil.MovilNave(self,posicion,tamano,velocidad)
+
 
 	def moverDerecha(self):
 		self.movil.moverDerecha()
