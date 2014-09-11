@@ -24,11 +24,15 @@ class Movil(object):
 	def moverAbajo(self):
 		self.posicion[1] += self.velocidad[1]
 
+	def destruirMovil(self):
+		Movil.lista.remove(self)
+
 	def __str__(self):
 		print "Movil en posicion " + str(self.posicion)
 
 	# def __eq__(self,otro):
 		# return (self.tamano == otro.tamano and self.posicion == otro.tamano and self.velocidad == otro.velocidad)
+
 
 
 class MovilNave(Movil):
@@ -190,7 +194,7 @@ class CollisionDetector(Singleton):
 			for candidato in moviles:
 				if (moviles.index(movil) == moviles.index(candidato)): continue
 				resultado = self.colsionaCon(movil,candidato)
-				if resultado : print "Colsiono el " + str(movil.dueno) + "con el" + str(candidato.dueno)
+				if resultado : print "Colsiono el " + str(movil.dueno) + " con el " + str(candidato.dueno)
 
 
 	def colsionaCon(self,movil,candidato):

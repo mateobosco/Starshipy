@@ -19,7 +19,7 @@ class Universo(object):
 		disparosJugador = self.jugador.nave.disparos
 		self.stepDisparo(disparosJugador)
 		lista = Movil.Movil.lista
-		self.collisionDetector.checkColisiones(lista)
+		#self.collisionDetector.checkColisiones(lista)
 
 			
 	def dibujar(self,pantalla):
@@ -35,5 +35,6 @@ class Universo(object):
 			if disparo.movil.posicion[1] > ALTO_PANTALLA : aux = 1
 			if disparo.movil.posicion[1] < 0 : aux = 1
 			if aux == 1:
+				disparos.destuirDisparo()
 				disparos.remove(disparo)
 				disparo = 0

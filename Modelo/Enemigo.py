@@ -26,6 +26,9 @@ class Enemigo(object):
 		alto = self.movil.tamano[1]
 		pygame.draw.rect(pantalla,pygame.Color(0,255,255),pygame.Rect((x,y), (ancho, alto)))
 
+	def destruirNave(self):
+		self.movil.destruirMovil()
+
 	def __str__(self):
 		return "Jugador en posicion " + str(self.movil.posicion)
 

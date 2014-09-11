@@ -21,6 +21,9 @@ class Disparo(object):
 		y = self.movil.posicion[1]
 		pygame.draw.rect(pantalla,pygame.Color(0,255,255),pygame.Rect((x,y), (ancho, alto)))
 
+	def destruirDisparo(self):
+		self.movil.destruirMovil()
+
 
 	def __str__(self):
 		return "Disparo en posicion " + str(self.movil.posicion)
