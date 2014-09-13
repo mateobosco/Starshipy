@@ -15,6 +15,7 @@ class ManejadorEnemigos(object):
 		for enemigo in self.enemigos:
 			enemigo.mover()
 			if (enemigo.movil.posicion[1] > ALTO_PANTALLA):
+				enemigo.destruirNave()
 				self.enemigos.remove(enemigo)
 				enemigo = 0
 

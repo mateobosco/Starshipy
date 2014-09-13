@@ -30,5 +30,5 @@ class Enemigo(object):
 		self.movil.destruirMovil()
 
 	def __str__(self):
-		return "Jugador en posicion " + str(self.movil.posicion)
+		return "Enemigo en posicion " + str(self.movil.posicion)
 

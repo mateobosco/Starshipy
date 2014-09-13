@@ -192,27 +192,14 @@ class CollisionDetector(Singleton):
 	def checkColisiones(self, moviles):
 		for movil in moviles:
 			for candidato in moviles:
-				if (moviles.index(movil) == moviles.index(candidato)): continue
+				# if (moviles.index(movil) == moviles.index(candidato)): continue
 				resultado = self.colsionaCon(movil,candidato)
 				if resultado : print "Colsiono el " + str(movil.dueno) + " con el " + str(candidato.dueno)
+				
 
-
-	def colsionaCon(self,movil,candidato):
-		# if (movil == candidato): return False
-		left = movil.posicion[0]
-		right = movil.posicion[1] + movil.tamano[0]
-		top = movil.posicion[1] + movil.tamano[1]
-		bottom = movil.posicion[1]
-		r_left = candidato.posicion[0]
-		r_right = candidato.posicion[0] + candidato.tamano[0]
-		r_top = candidato.posicion[1] + candidato.tamano[1]
-		r_bottom = candidato.posicion[1]
-		if (right >= r_left and left <= r_right and top >= r_bottom and bottom <= r_top) :return True
-		return False
-
-	def intersects(self,obj1,obj2):
-		# if (obj1 == obj2):
-			# return False
+	def colsionaCon(self,obj1,obj2):
+		if (obj1 == obj2):
+			return False
 		if (obj1.posicion[0] + obj1.tamano[0] < obj2.posicion[0]):
 			return False
 		if (obj1.posicion[1] + obj1.tamano[1] < obj2.posicion[1]):
@@ -222,4 +209,3 @@ class CollisionDetector(Singleton):
 		if (obj1.posicion[1] > obj2.posicion[1] + obj2.tamano[1]):
 			return False
 		return True
-
