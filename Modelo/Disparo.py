@@ -1,10 +1,12 @@
 import pygame
 import Movil
+import Nave
+import Enemigo
 
 class Disparo(object):
 
 	def __init__(self, posicion):
-# 		self.dueno = dueno
+		# self.dueno = dueno
 		posicion = posicion
 		velocidad = [0,-1]
 		tamano = [10,10]
@@ -24,6 +26,18 @@ class Disparo(object):
 	def destruirDisparo(self):
 		self.movil.destruirMovil()
 
+	def quitarDelMapa(self):
+		self.movil.quitarDelMapa()
+
 
 	def __str__(self):
 		return "Disparo en posicion " + str(self.movil.posicion)
+
+	def colisionarCon(self, otro):
+		if (otro is Nave.Nave):
+			pass
+		if (otro is Enemigo.Enemigo):
+			self.destruirDisparo()
+			self.quitarDelMapa()
+		if (otro is Disparo):
+			pass

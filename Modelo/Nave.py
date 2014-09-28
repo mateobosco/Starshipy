@@ -2,6 +2,7 @@
 import pygame
 import Disparo
 import Movil
+import Enemigo
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
@@ -31,6 +32,9 @@ class Nave(object):
 	def moverAbajo(self):
 		self.movil.moverAbajo()
 
+	def quitarVida(self,danio):
+		self.vida -= danio
+
 	def dibujar(self,pantalla):
 		x = self.movil.posicion[0]
 		y = self.movil.posicion[1]
@@ -51,3 +55,12 @@ class Nave(object):
 
 	def step(self):
 		if (self.ciclo > 0): self.ciclo -= 1
+
+
+	def colisionarCon(self, otro):
+		if (otro is Nave):
+			pass
+		if (otro is Enemigo.Enemigo):
+			self.quitarVida(20)
+		if (otro is Disparo.Disparo):
+			pass

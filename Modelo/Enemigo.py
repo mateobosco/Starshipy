@@ -2,6 +2,8 @@
 import pygame
 import random
 import Movil
+import Nave
+import Disparo
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480
@@ -29,6 +31,17 @@ class Enemigo(object):
 	def destruirNave(self):
 		self.movil.destruirMovil()
 
+	def quitarDelMapa(self):
+		self.movil.quitarDelMapa()
+
 	def __str__(self):
 		return "Enemigo en posicion " + str(self.movil.posicion)
+
+	def colisionarCon(self, otro):
+		if (otro is Nave.Nave):
+			pass
+		if (otro is Enemigo):
+			self.quitarDelMapa()
+		if (otro is Disparo.Disparo):
+			pass
 
