@@ -1,6 +1,7 @@
 from ManejadorEnemigos import ManejadorEnemigos
 from Jugador import Jugador
 import Movil
+import pygame
 
 
 ANCHO_PANTALLA = 640
@@ -25,6 +26,21 @@ class Universo(object):
 	def dibujar(self,pantalla):
 		self.jugador.dibujar(pantalla)
 		self.manejador.dibujar(pantalla)
+		self.dibujarCantidadEnemigos(pantalla)
+		self.dibujarCantidadDisparos(pantalla)
+
+	def dibujarCantidadEnemigos(self,pantalla):
+		texto = "Enemigos = " + str(len(self.manejador.enemigos))
+		fuente = pygame.font.Font(None, 25)
+		texto = fuente.render(texto, 1, (255, 0, 255))
+		pantalla.blit(texto, (0, 0))
+
+	def dibujarCantidadDisparos(self,pantalla):
+		texto = "Disparos = " + str(len(self.jugador.nave.disparos))
+		fuente = pygame.font.Font(None, 25)
+		texto = fuente.render(texto, 1, (255, 0, 255))
+		pantalla.blit(texto, (0, 20))
+
 		
 	def stepDisparo(self,disparos):
 		for disparo in disparos:

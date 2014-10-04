@@ -34,10 +34,10 @@ class Disparo(object):
 		return "Disparo en posicion " + str(self.movil.posicion)
 
 	def colisionarCon(self, otro):
-		if (otro is Nave.Nave):
+		if (type(otro) == Nave.Nave):
 			pass
-		if (otro is Enemigo.Enemigo):
-			self.destruirDisparo()
+		if (type(otro) == Enemigo.Enemigo):
+			# self.destruirDisparo()
 			self.quitarDelMapa()
-		if (otro is Disparo):
+		if (type(otro) == Disparo):
 			pass

@@ -58,9 +58,9 @@ class Nave(object):
 
 
 	def colisionarCon(self, otro):
-		if (otro is Nave):
+		if (type(otro) == Nave):
 			pass
-		if (otro is Enemigo.Enemigo):
+		if (type(otro) == Enemigo.Enemigo):
 			self.quitarVida(20)
-		if (otro is Disparo.Disparo):
+		if (type(otro) == Disparo.Disparo):
 			pass

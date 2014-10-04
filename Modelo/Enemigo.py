@@ -38,10 +38,10 @@ class Enemigo(object):
 		return "Enemigo en posicion " + str(self.movil.posicion)
 
 	def colisionarCon(self, otro):
-		if (otro is Nave.Nave):
-			pass
-		if (otro is Enemigo):
+		if (type(otro) == Nave.Nave):
 			self.quitarDelMapa()
-		if (otro is Disparo.Disparo):
+		if (type(otro) == Enemigo):
 			pass
+		if (type(otro) == Disparo.Disparo):
+			self.quitarDelMapa()
 

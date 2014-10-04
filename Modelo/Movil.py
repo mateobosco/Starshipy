@@ -3,8 +3,8 @@ ALTO_PANTALLA = 480
 
 class Movil(object):
 	lista = []
-	def __init__(self,dueno,posicion,tamano,velocidad):
-		self.dueno = dueno
+	def __init__(self,duenio,posicion,tamano,velocidad):
+		self.duenio = duenio
 		self.posicion = posicion
 		self.tamano = tamano
 		self.velocidad = velocidad
@@ -76,11 +76,10 @@ class CollisionDetector(Singleton):
 				# if (moviles.index(movil) == moviles.index(candidato)): continue
 				resultado = self.colsionaCon(movil,candidato)
 				if resultado : 
-					print "Colsiono el " + str(movil.dueno) + " con el " + str(candidato.dueno)
 
 					#Double Dispatching
-					movil.dueno.colisionarCon(candidato)
-					candidato.dueno.colisionarCon(movil)
+					movil.duenio.colisionarCon(candidato.duenio)
+					candidato.duenio.colisionarCon(movil.duenio)
 				
 
 	def colsionaCon(self,obj1,obj2):
