@@ -9,7 +9,7 @@ class Disparo(object):
 		# self.dueno = dueno
 		posicion = posicion
 		velocidad = [0,-1]
-		tamano = [10,10]
+		tamano = [2,7]
 		self.movil = Movil.Movil(self,posicion,tamano,velocidad)
 
 
@@ -37,7 +37,6 @@ class Disparo(object):
 		if (type(otro) == Nave.Nave):
 			pass
 		if (type(otro) == Enemigo.Enemigo):
-			# self.destruirDisparo()
 			self.quitarDelMapa()
 		if (type(otro) == Disparo):
 			pass

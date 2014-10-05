@@ -5,7 +5,7 @@ class Movil(object):
 	lista = []
 	def __init__(self,duenio,posicion,tamano,velocidad):
 		self.duenio = duenio
-		self.posicion = posicion
+		self.posicion = posicion ; self.posicion[0] -= tamano[0]/2
 		self.tamano = tamano
 		self.velocidad = velocidad
 		self.posicionEnLista = len(Movil.lista)

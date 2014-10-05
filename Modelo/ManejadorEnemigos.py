@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 from Enemigo import Enemigo
-# from pygame.locals import *
 
 ANCHO_PANTALLA = 640
 ALTO_PANTALLA = 480

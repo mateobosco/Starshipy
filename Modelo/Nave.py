@@ -11,12 +11,13 @@ ALTO_PANTALLA = 480
 class Nave(object):
 	def __init__(self):
 		posicion = [ANCHO_PANTALLA/2, ALTO_PANTALLA - 40]
-		tamano = [10,10]
+		tamano = [50,50]
 		velocidad = [5,5]
 		self.vida = 100
 		self.ciclo = 0
 		self.disparos = []
-
+		self.dibujador = DibujadorNave()
+		
 		self.movil = Movil.MovilNave(self,posicion,tamano,velocidad)
 
 
@@ -36,21 +37,20 @@ class Nave(object):
 		self.vida -= danio
 
 	def dibujar(self,pantalla):
-		x = self.movil.posicion[0]
-		y = self.movil.posicion[1]
-		ancho = self.movil.tamano[0]
-		alto = self.movil.tamano[1]
-		pygame.draw.rect(pantalla,pygame.Color(255,0,255),pygame.Rect((x,y), (ancho, alto)))
-		for disparo in self.disparos:
-			disparo.dibujar(pantalla)
+		self.dibujador.dibujar(pantalla,self)
 
 	def __str__(self):
 		return "Jugador en posicion " + str(self.movil.posicion)
 
 	def disparar(self):
 		if self.ciclo == 0 :
-			disparo = Disparo.Disparo(self.movil.posicion+[-self.movil.tamano[0]*2,0])
-			self.disparos.append(disparo)
+			deltaX = self.movil.tamano[0]
+			pos1 = [self.movil.posicion[0], self.movil.posicion[1]]
+			disparo1 = Disparo.Disparo(pos1)
+			pos2 = [self.movil.posicion[0] + deltaX, self.movil.posicion[1]]
+			disparo2 = Disparo.Disparo(pos2)
+			self.disparos.append(disparo1)
+			self.disparos.append(disparo2)
 			self.ciclo = 20
 
 	def step(self):
@@ -64,3 +64,18 @@ class Nave(object):
 			self.quitarVida(20)
 		if (type(otro) == Disparo.Disparo):
 			pass
+
+class DibujadorNave(object):
+	def __init__(self):
+		self.sprite = pygame.image.load("/home/mateo/git/Starshipy/Vista/Imagenes/spriteNave.png")
+
+
+	def dibujar(self,pantalla,nave):
+		x = nave.movil.posicion[0]
+		y = nave.movil.posicion[1]
+		ancho = nave.movil.tamano[0]
+		alto = nave.movil.tamano[1]
+		self.sprite = pygame.transform.scale(self.sprite, (ancho, alto))
+		pantalla.blit(self.sprite, (x,y))
+		for disparo in nave.disparos:
+			disparo.dibujar(pantalla)

@@ -9,9 +9,13 @@ class Dibujador(object):
 
 	def __init__(self):
 		pygame.init()
+		pygame.font.init()
 		self.pantalla = pygame.display.set_mode((ANCHO_PANTALLA, ALTO_PANTALLA))
 
 	def actualizar(self, universo):
+
+		
+
 		self.pantalla.fill(pygame.Color(0,0,0))
 
 		universo.dibujar(self.pantalla)
