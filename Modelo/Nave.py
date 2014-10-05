@@ -67,7 +67,7 @@ class Nave(object):
 
 class DibujadorNave(object):
 	def __init__(self):
-		self.sprite = pygame.image.load("/home/mateo/git/Starshipy/Vista/Imagenes/spriteNave.png")
+		self.sprite = pygame.image.load("/home/mateo/git/Starshipy/Vista/Imagenes/spriteNave2.png")
 
 
 	def dibujar(self,pantalla,nave):
