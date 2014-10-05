@@ -28,6 +28,7 @@ class Universo(object):
 		self.manejador.dibujar(pantalla)
 		self.dibujarCantidadEnemigos(pantalla)
 		self.dibujarCantidadDisparos(pantalla)
+		self.dibujarVidaDelJugador(pantalla)
 
 	def dibujarCantidadEnemigos(self,pantalla):
 		texto = "Enemigos = " + str(len(self.manejador.enemigos))
@@ -40,6 +41,12 @@ class Universo(object):
 		fuente = pygame.font.Font(None, 25)
 		texto = fuente.render(texto, 1, (255, 0, 255))
 		pantalla.blit(texto, (0, 20))
+
+	def dibujarVidaDelJugador(self,pantalla):
+		texto = "Vida = " + str(self.jugador.nave.vida)
+		fuente = pygame.font.Font(None, 25)
+		texto = fuente.render(texto, 1, (255, 0, 255))
+		pantalla.blit(texto, (0, 40))
 
 		
 	def stepDisparo(self,disparos):
