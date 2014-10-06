@@ -51,7 +51,7 @@ class Nave(object):
 			disparo2 = Disparo.Disparo(pos2)
 			self.disparos.append(disparo1)
 			self.disparos.append(disparo2)
-			self.ciclo = 20
+			self.ciclo = 10
 
 	def step(self):
 		if (self.ciclo > 0): self.ciclo -= 1

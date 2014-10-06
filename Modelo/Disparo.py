@@ -8,7 +8,7 @@ class Disparo(object):
 	def __init__(self, posicion):
 		# self.dueno = dueno
 		posicion = posicion
-		velocidad = [0,-1]
+		velocidad = [0,-3]
 		tamano = [2,7]
 		self.movil = Movil.Movil(self,posicion,tamano,velocidad)
 

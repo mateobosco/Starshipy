@@ -13,7 +13,7 @@ class Enemigo(object):
 	def __init__(self):
 		posicion = [random.randrange(0, ANCHO_PANTALLA), 0]
 		tamano = [20,20]
-		velocidad = [1,1]
+		velocidad = [1.5,1.5]
 		self.vida = 50
 		self.movil = Movil.Movil(self,posicion,tamano,velocidad)
 		self.dibujador = DibujadorEnemigo()
