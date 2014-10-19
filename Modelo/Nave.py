@@ -37,7 +37,8 @@ class Nave(object):
 		self.vida -= danio
 
 	def dibujar(self,pantalla):
-		self.dibujador.dibujar(pantalla,self)
+		# self.dibujador.dibujar(pantalla,self)
+		i=1
 
 	def __str__(self):
 		return "Jugador en posicion " + str(self.movil.posicion)

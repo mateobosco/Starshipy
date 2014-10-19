@@ -7,15 +7,15 @@ from Controlador.Controlador import Controlador
 
 def main():
 	pygame.init()
-	dibujador = Dibujador()
+	
 	universo = Universo()
-
+	dibujador = Dibujador(universo)
 	controlador = Controlador(universo)
 	while 1:
 
 		universo.step()
 
-		dibujador.actualizar(universo)
+		dibujador.actualizar()
 
 		controlador.aplicar()
 

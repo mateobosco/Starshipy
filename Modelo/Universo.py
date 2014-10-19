@@ -61,3 +61,10 @@ class Universo(object):
 				disparo.destruirDisparo()
 				disparos.remove(disparo)
 				disparo = 0
+
+	def getDibujables(self):
+		dibujables = []
+		dibujables.append(self.jugador)
+		dibujables.append(self.jugador.nave)
+		dibujables += self.manejador.enemigos
+		return dibujables
