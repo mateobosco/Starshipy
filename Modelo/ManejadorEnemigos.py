@@ -28,7 +28,3 @@ class ManejadorEnemigos(object):
 		if (self.ciclos == 60):
 			self.crearEnemigo()
 			self.ciclos = 0
-
-	def dibujar(self,pantalla):
-		for e in self.enemigos:
-			e.dibujar(pantalla)

@@ -16,13 +16,6 @@ class Disparo(object):
 	def moverDisparo(self):
 		self.movil.moverAbajo()
 
-	def dibujar(self,pantalla):
-		ancho = self.movil.tamano[0]
-		alto = self.movil.tamano[1]
-		x = self.movil.posicion[0]
-		y = self.movil.posicion[1]
-		pygame.draw.rect(pantalla,pygame.Color(0,255,255),pygame.Rect((x,y), (ancho, alto)))
-
 	def destruirDisparo(self):
 		self.movil.destruirMovil()
 

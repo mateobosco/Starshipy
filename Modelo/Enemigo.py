@@ -16,14 +16,9 @@ class Enemigo(object):
 		velocidad = [1.5,1.5]
 		self.vida = 50
 		self.movil = Movil.Movil(self,posicion,tamano,velocidad)
-		self.dibujador = DibujadorEnemigo()
 
 	def mover(self):
 		self.movil.moverAbajo()
-
-
-	def dibujar(self,pantalla):
-		self.dibujador.dibujar(pantalla,self)
 
 	def destruirNave(self):
 		self.movil.destruirMovil()
@@ -42,16 +37,3 @@ class Enemigo(object):
 		if (type(otro) == Disparo.Disparo):
 			self.quitarDelMapa()
 
-
-class DibujadorEnemigo(object):
-	def __init__(self):
-		self.sprite = pygame.image.load("/home/mateo/git/Starshipy/Vista/Imagenes/spriteEnemigo.png")
-
-
-	def dibujar(self,pantalla,enemigo):
-		x = enemigo.movil.posicion[0]
-		y = enemigo.movil.posicion[1]
-		ancho = enemigo.movil.tamano[0]
-		alto = enemigo.movil.tamano[1]
-		self.sprite = pygame.transform.scale(self.sprite, (ancho, alto))
-		pantalla.blit(self.sprite, (x,y))

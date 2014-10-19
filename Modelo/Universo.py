@@ -21,33 +21,6 @@ class Universo(object):
 		self.stepDisparo(disparosJugador)
 		lista = Movil.Movil.lista
 		self.collisionDetector.checkColisiones(lista)
-
-			
-	def dibujar(self,pantalla):
-		self.jugador.dibujar(pantalla)
-		self.manejador.dibujar(pantalla)
-		self.dibujarCantidadEnemigos(pantalla)
-		self.dibujarCantidadDisparos(pantalla)
-		self.dibujarVidaDelJugador(pantalla)
-
-	def dibujarCantidadEnemigos(self,pantalla):
-		texto = "Enemigos = " + str(len(self.manejador.enemigos))
-		fuente = pygame.font.Font(None, 25)
-		texto = fuente.render(texto, 1, (255, 0, 255))
-		pantalla.blit(texto, (0, 0))
-
-	def dibujarCantidadDisparos(self,pantalla):
-		texto = "Disparos = " + str(len(self.jugador.nave.disparos))
-		fuente = pygame.font.Font(None, 25)
-		texto = fuente.render(texto, 1, (255, 0, 255))
-		pantalla.blit(texto, (0, 20))
-
-	def dibujarVidaDelJugador(self,pantalla):
-		texto = "Vida = " + str(self.jugador.nave.vida)
-		fuente = pygame.font.Font(None, 25)
-		texto = fuente.render(texto, 1, (255, 0, 255))
-		pantalla.blit(texto, (0, 40))
-
 		
 	def stepDisparo(self,disparos):
 		for disparo in disparos:
@@ -67,4 +40,5 @@ class Universo(object):
 		dibujables.append(self.jugador)
 		dibujables.append(self.jugador.nave)
 		dibujables += self.manejador.enemigos
+		dibujables += self.jugador.nave.disparos
 		return dibujables

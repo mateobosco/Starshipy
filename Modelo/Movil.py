@@ -35,7 +35,6 @@ class Movil(object):
 
 
 
-
 class MovilNave(Movil):
 
 	def moverDerecha(self):
@@ -73,7 +72,6 @@ class CollisionDetector(Singleton):
 	def checkColisiones(self, moviles):
 		for movil in moviles:
 			for candidato in moviles:
-				# if (moviles.index(movil) == moviles.index(candidato)): continue
 				resultado = self.colsionaCon(movil,candidato)
 				if resultado : 
 

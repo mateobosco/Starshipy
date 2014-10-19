@@ -16,7 +16,6 @@ class Nave(object):
 		self.vida = 100
 		self.ciclo = 0
 		self.disparos = []
-		self.dibujador = DibujadorNave()
 		
 		self.movil = Movil.MovilNave(self,posicion,tamano,velocidad)
 
@@ -36,9 +35,6 @@ class Nave(object):
 	def quitarVida(self,danio):
 		self.vida -= danio
 
-	def dibujar(self,pantalla):
-		# self.dibujador.dibujar(pantalla,self)
-		i=1
 
 	def __str__(self):
 		return "Jugador en posicion " + str(self.movil.posicion)
@@ -65,18 +61,3 @@ class Nave(object):
 			self.quitarVida(20)
 		if (type(otro) == Disparo.Disparo):
 			pass
-
-class DibujadorNave(object):
-	def __init__(self):
-		self.sprite = pygame.image.load("/home/mateo/git/Starshipy/Vista/Imagenes/spriteNave2.png")
-
-
-	def dibujar(self,pantalla,nave):
-		x = nave.movil.posicion[0]
-		y = nave.movil.posicion[1]
-		ancho = nave.movil.tamano[0]
-		alto = nave.movil.tamano[1]
-		self.sprite = pygame.transform.scale(self.sprite, (ancho, alto))
-		pantalla.blit(self.sprite, (x,y))
-		for disparo in nave.disparos:
-			disparo.dibujar(pantalla)
